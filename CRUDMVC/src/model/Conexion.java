@@ -6,6 +6,9 @@ import java.sql.DriverManager;
 
 public class Conexion {
     
+    //Variables de la conexion
+    
+    
     private final String base = "tiendita";
     private final String user = "root";
     private final String password = "Gauss11235";
@@ -19,7 +22,7 @@ public class Conexion {
         
         try{
             
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver"); //Ruta del driver
             con = (Connection) DriverManager.getConnection(this.url, this.user,this.password);
             
         }catch(Exception e){

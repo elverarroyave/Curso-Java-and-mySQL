@@ -9,11 +9,11 @@ public class ConsultasProductos extends Conexion{
     
     public boolean registrar(Producto pro){
         
-        PreparedStatement ps = null;
+        PreparedStatement ps = null; //Para empezar a preparar nuestra consulta
         
         Connection con = getConexion();
         
-        String sql = "INSERT INTO producto(codigo, nombre, precio, cantidad) VALUES(?,?,?,?)";
+        String sql = "INSERT INTO producto(codigo, nombre, precio, cantidad) VALUES(?,?,?,?)"; //lo hacemos con signo de interrogacion por seguridad
         
         try {
             
@@ -124,15 +124,16 @@ public class ConsultasProductos extends Conexion{
             
             ps.setString(1,pro.getCodigo());
           
-            rs = ps.executeQuery();
+            rs = ps.executeQuery(); // Para que nos regrese el resultado
             
             
             if(rs.next()){
                 pro.setId(Integer.parseInt(rs.getString("id")));
                 pro.setCodigo(rs.getString("codigo"));
                 pro.setNombre(rs.getString("nombre"));
-                pro.setPrecio(rs.getDouble("precio"));
-                pro.setCantidad(rs.getInt("cantidad"));
+                pro.setPrecio(Double.parseDouble(rs.getString("precio")));
+                pro.setCantidad(Integer.parseInt(rs.getString("cantidad")));   //Se puede poner un getInt para evitar el parceo?
+                
                 return true;
             }
            

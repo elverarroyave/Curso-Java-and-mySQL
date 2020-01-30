@@ -49,9 +49,9 @@ public class CtrlProducto implements ActionListener{
         
         if(e.getSource() == frm.btnGuardar){
             mod.setCodigo(frm.txtCodigo.getText());
-            mod.setNombre(frm.txtCodigo.getText());
-            mod.setPrecio(Double.parseDouble(frm.txtCodigo.getText()));
-            mod.setCantidad(Integer.parseInt(frm.txtCodigo.getText()));
+            mod.setNombre(frm.txtNombre.getText());
+            mod.setPrecio(Double.parseDouble(frm.txtPrecio.getText()));
+            mod.setCantidad(Integer.parseInt(frm.txtCantidad.getText()));
             
             if(modC.registrar(mod)){
                 JOptionPane.showMessageDialog(null, "Registro Guardado");
@@ -64,9 +64,9 @@ public class CtrlProducto implements ActionListener{
         if(e.getSource() == frm.btnModificar){
             mod.setId(Integer.parseInt(frm.txtIdTemporal.getText()));
             mod.setCodigo(frm.txtCodigo.getText());
-            mod.setNombre(frm.txtCodigo.getText());
-            mod.setPrecio(Double.parseDouble(frm.txtCodigo.getText()));
-            mod.setCantidad(Integer.parseInt(frm.txtCodigo.getText()));
+            mod.setNombre(frm.txtNombre.getText());
+            mod.setPrecio(Double.parseDouble(frm.txtPrecio.getText()));
+            mod.setCantidad(Integer.parseInt(frm.txtCantidad.getText()));
             
             if(modC.modificar(mod)){
                 JOptionPane.showMessageDialog(null, "Registro modificado");
